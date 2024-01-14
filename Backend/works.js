@@ -1,3 +1,5 @@
+// export de la fonction genererworks
+export default genererWorks
 // Récupération des works depuis l'API
 fetch("http://localhost:5678/api/works")
     // Parse la réponse en JSON
