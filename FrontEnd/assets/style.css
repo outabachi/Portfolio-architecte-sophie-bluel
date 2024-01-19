@@ -303,31 +303,16 @@ button {
 	font-family: 'Syne';
 }
 
-.filtres {
+#filtres {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 30px;
 	height: 37px;
 }
-
-#tous {
-	width: 100px;
-}
-
-#objets {
-	margin-left: 10px;
-	margin-right: 10px;
-	width: 100px;
-}
-
-#appartements {
-	margin-right: 10px;
-	width: 157px;
-}
-
-#hotels_et_restaurants {
-	width: 198px;
-
+#filtres button {
+padding-left: 10px;
+padding-right: 10px;
+margin-right: 15px;
 }
 
 button:hover {
