@@ -17,17 +17,17 @@ function connection() {
             },
             body: JSON.stringify(identifiants)
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === "user not found") {
-                    window.alert("email ou mot de passe incorrect")
+            .then(response => {
+                if (response.ok) {
+                   return response.json()
                 }
                 else {
-                    localStorage.getItem(data);
-                    window.location.href = './index.html'
-
+                    window.alert("Email ou mot de passe incorrect");
                 }
-
+            })
+            .then(data => {
+                localStorage.setItem(data.userId, data.token);
+                window.location.href = './index.html';
             })
     })
 
