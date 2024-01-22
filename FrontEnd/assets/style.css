@@ -324,3 +324,49 @@ button:hover {
 	background-color: #1D6154;
 	color: white;
 }
+
+/* log in */
+#log_in>* {
+	text-align: center;
+
+}
+
+#log_in h2 {
+	margin-bottom: 20px;
+}
+
+#log_in input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#log_in label {
+	margin: 2em 0 1em 0;
+	width: 379px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#log_in form {
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+#input_email {
+	width: 379px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#input_password {
+	width: 379px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#log_in a {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	color: #3D3D3D;
+}
