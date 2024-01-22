@@ -9,38 +9,38 @@ fetch("http://localhost:5678/api/works")
     .then(data => {
         works = data;
 
-// Sélection de tous les boutons
-let categoryElements = document.querySelectorAll("button");
+        // Sélection de tous les boutons
+        let categoryElements = document.querySelectorAll("button");
 
-// Ajout d'un gestionnaire d'événements à chaque bouton
-categoryElements.forEach(button => {
-    button.addEventListener("click", () => {
-        // Sélectionnez toutes les balises figure dans la class galery
-        let galleryFigures = document.querySelectorAll(".gallery figure");
+        // Ajout d'un gestionnaire d'événements à chaque bouton
+        categoryElements.forEach(button => {
+            button.addEventListener("click", () => {
+                // Sélectionnez toutes les balises figure dans la class galery
+                let galleryFigures = document.querySelector(".gallery");
 
-        // Parcours les éléments dans les figures de gallery et supprime leur contenu
-        for (let i = 0; i < galleryFigures.length; i++) {
-            galleryFigures[i].innerHTML = '';
-        }
+                // Parcours les enfants de l'élément parent et supprime leur contenu
+                while (galleryFigures.firstChild) {
+                    galleryFigures.removeChild(galleryFigures.firstChild);
+                }
 
-        // Supprime la classe "active" de tous les boutons
-        categoryElements.forEach(btn => {
-            btn.classList.remove("active");
+                // Supprime la classe "active" de tous les boutons
+                categoryElements.forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+                // Ajoute la classe "active" au bouton cliqué
+                button.classList.add("active");
+
+                // Affiche les works en fonction de la catégorie du bouton cliqué
+                let worksByCategory = works.filter(work => work.category.name === button.id);
+                if (button.id !== "tous") {
+                    genererWorks(worksByCategory);
+                }
+                else {
+                    // afficher tous les works 
+                    genererWorks(works);
+
+                }
+            });
         });
-
-        // Ajoute la classe "active" au bouton cliqué
-        button.classList.add("active");
-
-        // Affiche les works en fonction de la catégorie du bouton cliqué
-        let worksByCategory = works.filter(work => work.category.name === button.id);
-        if (button.id !== "tous") {
-            genererWorks(worksByCategory);
-        }
-        else {
-            // afficher tous les works 
-            genererWorks(works);
-       
-        }
-    });
-});
     })
