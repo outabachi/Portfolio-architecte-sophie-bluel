@@ -10,7 +10,7 @@ fetch("http://localhost:5678/api/works")
     })
 // Fonction qui génère les works
 function genererWorks(works) {
-    for (let i = 0; i < works.length; i++) {
+    for (let work of works) {
         // Création d'une balise figure 
         const figureElement = document.createElement("figure");
         // Création d’une balise dédiée au titre
@@ -18,9 +18,9 @@ function genererWorks(works) {
         // On crée l’élément img.
         const imageElement = document.createElement("img");
         // On accède à l’indice i de la liste works pour configurer la source de l’image.
-        imageElement.src = works[i].imageUrl;
+        imageElement.src = work.imageUrl;
         // On accède à l'indice i de la liste works pour configurer le title.
-        titleElement.innerText = works[i].title;
+        titleElement.innerText = work.title;
         // récuperer la balise ou l'on va mettre tout ca
         let galleryElement = document.querySelector(".gallery");
         // On rattache l’image à la balise figure

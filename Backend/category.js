@@ -5,12 +5,11 @@ let works;
 fetch("http://localhost:5678/api/categories")
     // Parse la réponse en JSON
     .then(response => response.json())
-    .then(data => {
-        works = data;
-        for (let i = 0; i < works.length; i++) {
+    .then(categories => {
+        for (let category of categories) {
             let btnCategory = document.createElement('button');
-            btnCategory.textContent = works[i].name;
-            btnCategory.id = works[i].name;
+            btnCategory.textContent = category.name;
+            btnCategory.dataset.categoryId = category.id;
             divFiltres.appendChild(btnCategory);
         
         }
